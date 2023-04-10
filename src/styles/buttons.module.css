@@ -1,0 +1,17 @@
+.cancel{
+    width: 175px;
+    height: 56px;
+    cursor: pointer;
+    color: #7A5CFA;
+    border: 2px solid #7A5CFA;
+    border-radius: 5px;
+}
+
+.submit{
+    width: 175px;
+    height: 56px;
+    cursor: pointer;
+    color: #fdfdfd;
+    background-color: #7A5CFA;
+    border-radius: 5px;
+}
