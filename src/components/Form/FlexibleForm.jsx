@@ -16,6 +16,7 @@ const FlexibleForm = () => {
     remember: false,
     toggle: false,
     selectedOption: 1,
+    dropdown: 'Dropdown options',
   });
   const [errors, setErros] = useState({});
   const handleChange = ({ target }) => {
@@ -24,6 +25,7 @@ const FlexibleForm = () => {
     } else {
       setData((prevState) => ({ ...prevState, [target.name]: target.value }));
     }
+    console.log(target);
   };
 
   const handleSubmit = (e) => {
@@ -78,7 +80,7 @@ const FlexibleForm = () => {
               selectedOption={data.selectedOption}
               name="selectedOption"
             />
-            <Dropdown handleChange={handleChange} name="dropDown" />
+            <Dropdown handleChange={handleChange} name="dropdown" dropdown={data.dropdown} />
             <ButtonsSubmit isValid={isValid} />
           </form>
         </div>
