@@ -7,7 +7,11 @@ const ButtonsSubmit = ({ isValid }) => {
       <button disabled className={styles.cancel}>
         next
       </button>
-      <button type="submit" disabled={!isValid} className={styles.submit}>
+      <button
+        type="submit"
+        disabled={!isValid}
+        className={isValid ? styles.submit : styles.submitDisabled}
+      >
         Submit
       </button>
     </div>
