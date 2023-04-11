@@ -13,13 +13,14 @@ const FlexibleForm = () => {
     username: '',
     password: '',
     labelText: '',
-    chekbox: false,
+    remember: false,
     toggle: false,
+    selectedOption: 1,
   });
   const [errors, setErros] = useState({});
   const handleChange = ({ target }) => {
-    if (target.name === 'chekbox' || target.name === 'toggle') {
-      setData((prevState) => ({ ...prevState, [target.name]: target.checked }));
+    if (target.name === 'selectedOption') {
+      setData((prevState) => ({ ...prevState, [target.name]: Number(target.value) }));
     } else {
       setData((prevState) => ({ ...prevState, [target.name]: target.value }));
     }
@@ -70,9 +71,13 @@ const FlexibleForm = () => {
               error={errors.labelText}
               placeHolder="Enter text"
             />
-            <CheckBox handleChange={handleChange} name="chekbox" />
+            <CheckBox handleChange={handleChange} name="remember" />
             <ToggleCheckBox handleChange={handleChange} name="toggle" value={data.toggle} />
-            <RadioButtons handleChange={handleChange} name="radio" />
+            <RadioButtons
+              handleChange={handleChange}
+              selectedOption={data.selectedOption}
+              name="selectedOption"
+            />
             <Dropdown handleChange={handleChange} name="dropDown" />
             <ButtonsSubmit isValid={isValid} />
           </form>
