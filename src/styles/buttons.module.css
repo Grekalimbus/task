@@ -15,3 +15,11 @@
     background-color: #7A5CFA;
     border-radius: 5px;
 }
+.submitDisabled{
+    width: 175px;
+    height: 56px;
+    cursor: pointer;
+    color: #fdfdfd;
+    background-color: #795cfa83;
+    border-radius: 5px;
+}

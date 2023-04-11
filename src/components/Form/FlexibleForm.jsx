@@ -73,7 +73,7 @@ const FlexibleForm = () => {
               handleChange={handleChange}
               title="Input Text Label"
               type="text"
-              error={errors.labelText}
+              error={errors.InputTextLabel}
               placeHolder="Enter text"
             />
             <CheckBox handleChange={handleChange} name="remember" />
