@@ -12,25 +12,25 @@ const FlexibleForm = () => {
   const [data, setData] = useState({
     username: '',
     password: '',
-    labelText: '',
+    InputTextLabel: '',
     remember: false,
     toggle: false,
-    selectedOption: 1,
-    dropdown: 'Dropdown options',
+    radioSelection: 1,
+    dropdownTitle: 'Dropdown options',
   });
   const [errors, setErros] = useState({});
   const handleChange = ({ target }) => {
-    if (target.name === 'selectedOption') {
+    if (target.name === 'radioSelection') {
       setData((prevState) => ({ ...prevState, [target.name]: Number(target.value) }));
     } else {
       setData((prevState) => ({ ...prevState, [target.name]: target.value }));
     }
-    console.log(target);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const isValid = validate();
+    console.log(isValid);
     if (!isValid) return;
     console.log(data);
     alert(JSON.stringify(data));
@@ -38,12 +38,15 @@ const FlexibleForm = () => {
   useEffect(() => {
     validate();
   }, [data]);
+
   const validate = () => {
     const errors = validator(data, validatorConfig);
     setErros(errors);
     return Object.keys(errors).length === 0;
   };
+
   const isValid = Object.keys(errors).length === 0;
+
   return (
     <div className="container mt-5" style={{ width: '40%' }}>
       <div className="row">
@@ -66,7 +69,7 @@ const FlexibleForm = () => {
               placeHolder="Enter password"
             />
             <TextField
-              name="labelText"
+              name="InputTextLabel"
               handleChange={handleChange}
               title="Input Text Label"
               type="text"
@@ -77,8 +80,8 @@ const FlexibleForm = () => {
             <ToggleCheckBox handleChange={handleChange} name="toggle" value={data.toggle} />
             <RadioButtons
               handleChange={handleChange}
-              selectedOption={data.selectedOption}
-              name="selectedOption"
+              selectedOption={data.radioSelection}
+              name="radioSelection"
             />
             <Dropdown handleChange={handleChange} name="dropdown" dropdown={data.dropdown} />
             <ButtonsSubmit isValid={isValid} />

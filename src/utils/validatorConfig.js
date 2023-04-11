@@ -7,7 +7,7 @@ const validatorConfig = {
     isRequired: { message: 'Обязательно для заполнения' },
     isLength: { message: 'Пароль должен иметь от 4 до 12 символов' },
   },
-  labelText: {
+  InputTextLabel: {
     isRequired: { message: 'Обязательно для заполнения' },
   },
 };
