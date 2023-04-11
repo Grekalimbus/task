@@ -1,48 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/dropdown.module.css';
 
-const Dropdown = () => {
-  const [value, setValue] = useState('Dropdown options');
-  const [items, setItems] = useState([
-    'Dropdown options',
-    'Dropdown options 2',
-    'Dropdown options 3',
-  ]);
-  useEffect(() => {
-    if (value === 'Dropdown options') {
-      setItems(['Dropdown options 2', 'Dropdown options 3']);
-    }
-    if (value === 'Dropdown options 2') {
-      setItems(['Dropdown options', 'Dropdown options 3']);
-    }
-    if (value === 'Dropdown options 3') {
-      setItems(['Dropdown options', 'Dropdown options 2']);
-    }
-  }, [value]);
-
+const Dropdown = ({ name, dropdown, handleChange }) => {
   return (
     <div className="mb-5" style={{ width: '100%' }}>
       <label htmlFor="Dropdown Title" className="mb-2">
         Dropdown Title
       </label>
       <select
+        name={name}
         className={styles.select}
         aria-label="Default select example"
-        value="Dropdown options"
-        name="Dropdown options"
-        onChange={(e) => setValue(e.target.value)}
+        onChange={handleChange}
       >
-        <option className={styles.options} value={'Dropdown options'}>
-          {value}
-        </option>
-
-        {items.map((item) => {
-          return (
-            <option className={styles.options} key={item} value={item}>
-              {item}
-            </option>
-          );
-        })}
+        <option className={styles.options}>Dropdown options</option>
+        <option className={styles.options}>Dropdown options2</option>
+        <option className={styles.options}>Dropdown options3</option>
       </select>
     </div>
   );

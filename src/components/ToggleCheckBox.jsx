@@ -8,7 +8,7 @@ const ToggleCheckBox = ({ name, value, handleChange }) => {
         className="form-check-input"
         type="checkbox"
         id="flexSwitchCheckDefault"
-        onChange={handleChange}
+        onChange={(e) => handleChange({ target: { name, value: e.target.checked } })}
       />
       <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
         {value ? 'Off' : 'On'}

@@ -4,13 +4,13 @@ const CheckBox = ({ name, handleChange }) => {
   return (
     <div className="mb-4">
       <input
-        name={name}
         className="form-check-input"
+        name={name}
         type="checkbox"
-        id="flexCheckDefault"
-        onChange={handleChange}
+        id={name}
+        onChange={(e) => handleChange({ target: { name, value: e.target.checked } })}
       />
-      <label className="form-check-label ms-2" htmlFor="flexCheckDefault">
+      <label className="form-check-label ms-2" htmlFor={name}>
         Remember me
       </label>
     </div>
